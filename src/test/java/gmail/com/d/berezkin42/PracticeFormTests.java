@@ -6,18 +6,20 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import java.io.File;
+import java.security.Key;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
 
-//    @BeforeAll
-//    static void beforeAllMethod() {
-//        Configuration.browserSize = "1920x1080";
-//    }
+    @BeforeAll
+    static void beforeAllMethod() {
+        Configuration.browserSize = "1920x1080";
+    }
 
     @Test
     void runTests() {
@@ -31,18 +33,25 @@ public class PracticeFormTests {
         //$(byText("Male")).click();
         //$(".custom-control-label").click(); //gender-radio-1
         $("#userNumber").setValue("4951234567"); //userNumber
-
         $("#dateOfBirthInput").sendKeys(Keys.CONTROL+"a");
-        $("#dateOfBirthInput").sendKeys("12 Apr 1961"); //dateOfBirthInput 12 Apr 1961
-
-        $("#subjectsInput").setValue("Subject text"); //subjectsInput
-
-        //hobbies-checkbox-3 click
-
-        //uploadPicture
-
+        $("#dateOfBirthInput").sendKeys("12 Apr 1961", Keys.ENTER); //dateOfBirthInput 12 Apr 1961
+        $("#subjectsInput").sendKeys("e");
+        $(".subjects-auto-complete__menu #react-select-2-option-0").click();
+        //$("#subjectsInput").setValue("English").pressEnter(); //subjectsInput
+        $(byText("Sports")).click(); //hobbies-checkbox-3 click
+        $(byText("Reading")).click(); //hobbies-checkbox-3 click
+        $(byText("Music")).click(); //hobbies-checkbox-3 click
+        $("#uploadPicture").uploadFile(new File("src/test/java/resourses/testUploadFile1.png")); //uploadPicture
         $("#currentAddress").setValue("Random address"); //currentAddress
-        //
+
+        $("#state").scrollTo().click();
+        $(".  #react-select-2-option-0").click();
+        //$(byText("NCR")).click();
+        $("#react-select-4-input").selectOption("Noida");
+
+        //city
+
+
 
     }
 
