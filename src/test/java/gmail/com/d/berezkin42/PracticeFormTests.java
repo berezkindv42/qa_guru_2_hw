@@ -43,17 +43,21 @@ public class PracticeFormTests {
         $(byText("Music")).click(); //hobbies-checkbox-3 click
         $("#uploadPicture").uploadFile(new File("src/test/java/resourses/testUploadFile1.png")); //uploadPicture
         $("#currentAddress").setValue("Random address"); //currentAddress
+        $("#react-select-3-input").scrollTo().sendKeys("NCR", Keys.ENTER);
+        $("#react-select-4-input").sendKeys("Noida", Keys.ENTER);
+        $("#submit").click();
 
-        $("#state").scrollTo().click();
-        $(".  #react-select-2-option-0").click();
-        //$(byText("NCR")).click();
-        $("#react-select-4-input").selectOption("Noida");
+        $(".modal-body").shouldHave(text("Vasiliy Pupkin"));
+        $(".modal-body").shouldHave(text("vasiliy.p@email.com"));
+        $(".modal-body").shouldHave(text("Male"));
+        $(".modal-body").shouldHave(text("4951234567"));
+        $(".modal-body").shouldHave(text("12 April,1961"));
+        $(".modal-body").shouldHave(text("English"));
+        $(".modal-body").shouldHave(text("Sports, Reading, Music"));
+        $(".modal-body").shouldHave(text("testUploadFile1.png"));
+        $(".modal-body").shouldHave(text("Random address"));
+        $(".modal-body").shouldHave(text("NCR Noida"));
 
-        //city
-
-
-
+        $("#closeLargeModal").click();
     }
-
-
 }
