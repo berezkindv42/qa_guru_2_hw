@@ -30,9 +30,6 @@ public class PracticeFormTests {
         $("#lastName").setValue("Pupkin");
         $("#userEmail").setValue("vasiliy.p@email.com");
         $("label.custom-control-label").shouldHave(text("Male")).click();
-//        $(".custom-control-label").shouldHave(text("Male")).click();
-//        $(byText("Male")).click();
-//        $(".custom-control-label").click();
         $("#userNumber").setValue("4951234567");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
