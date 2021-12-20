@@ -34,8 +34,9 @@ public class PracticeFormTests {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
         $(".react-datepicker__year-select").selectOption("1961");
-        $(".react-datepicker__day--012:not(.react-datepicker__day--outside-month)").click();
-        $("#subjectsInput").sendKeys("e");
+//        $(".react-datepicker__day--012:not(.react-datepicker__day--outside-month)").click();
+        $("[aria-label$='April 12th, 1961']").click();
+        $("#subjectsInput").setValue("e");
         $(".subjects-auto-complete__menu #react-select-2-option-0").click();
         $("label[for=hobbies-checkbox-1]").click();
         $("label[for=hobbies-checkbox-2]").click();
@@ -50,8 +51,16 @@ public class PracticeFormTests {
 
 //        Asserts
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".modal-body").shouldHave(text("Vasiliy Pupkin"), text("vasiliy.p@email.com"), text("Male"), text("4951234567"), text("12 April,1961"),
-                text("English"), text("Sports, Reading, Music"), text("testUploadFile1.png"), text("Random address"), text("NCR Delhi"));
+        $(".modal-body").shouldHave(text("Vasiliy Pupkin"),
+                text("vasiliy.p@email.com"),
+                text("Male"),
+                text("4951234567"),
+                text("12 April,1961"),
+                text("English"),
+                text("Sports, Reading, Music"),
+                text("testUploadFile1.png"),
+                text("Random address"),
+                text("NCR Delhi"));
         $("#closeLargeModal").click();
     }
 }
